@@ -15,8 +15,7 @@ class User{
     }
     // GET ALL
     public function getUsers(){
-        $sqlQuery = "SELECT id, username, name, city_id FROM " . $this->db_table . "";
-        $stmt = $this->conn->prepare($sqlQuery);
+        $query = "SELECT user.id, user.username, user.name, city.cityname FROM " . $this->table_name . " LEFT JOIN city ON user.city_id = city.id";
         $stmt->execute();
         return $stmt;
     }
